@@ -12,7 +12,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Browser compatibility
 
-`useCancelOngoingRequestsOnUnmount` is (supported on all evergreen browsers)[https://developer.mozilla.org/en-US/docs/Web/API/AbortController#browser_compatibility]
+`useCancelOngoingRequestsOnUnmount` is [supported on all evergreen browsers](https://developer.mozilla.org/en-US/docs/Web/API/AbortController#browser_compatibility)
 
 
 ## Getting Started
