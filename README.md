@@ -10,6 +10,11 @@ This project includes the source code of `useCancelOngoingRequestsOnUnmount` as 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Browser compatibility
+
+`useCancelOngoingRequestsOnUnmount` is (supported on all evergreen browsers)[https://developer.mozilla.org/en-US/docs/Web/API/AbortController#browser_compatibility]
+
+
 ## Getting Started
 
 ### Installation
