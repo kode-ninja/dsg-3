@@ -1,10 +1,59 @@
-# Getting Started with Create React App
+# Cancel upon leave hook
+
+`useCancelOngoingRequestsOnUnmount` is a React hook which cancels any outgoing Web request once a component unmounts.
+
+It is based on the [AbortController](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) interface which represents a controller object that allows you to abort one or more Web requests as and when desired.
+
+As such, it supports any HTTP client library which supports the [signal](https://developer.mozilla.org/en-US/docs/Web/API/fetch#parameters) request parameter (e.g. `fetch API`, `axios`).
+
+This project includes the source code of `useCancelOngoingRequestsOnUnmount` as well as a usage example.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Getting Started
+
+### Installation
+
+To install the project, run the following the in project directory:
+* `npm install`
+* `npm install -g json-server`
+
+### Running
+In the project directory:
+
+* Run `npm json-server` to start the [json-server](https://www.npmjs.com/package/json-server), which is configured with a delay of 3 seconds.
+* Run `npm start` to run the app in the development mode.
+
+## Usage
+
+Add `useCancelOngoingRequestsOnUnmount` to your component:
+```
+const requestAbortController = useCancelOngoingRequestsOnUnmount();
+```
+
+For each outgoing request, create a *cancellation signal*:
+```
+const signal = requestAbortController.getCancellationSignal();
+```
+
+Add the *signal* as an option inside the request's options object:
+```
+fetch("https://example.com/", {signal})
+```
+
+For each completed request, either failed or successful, call `requestCompleted(signal)` (usually in the `finally` block):
+```
+requestAbortController.requestCompleted(signal);
+```
+
+See `PageWithRequests.js` for usage example
 
 ## Available Scripts
 
 In the project directory, you can run:
+### `npm json-server`
+
+Runs the [json-server](https://www.npmjs.com/package/json-server), which is configured with a delay of 3 seconds.
 
 ### `npm start`
 
